@@ -4444,12 +4444,42 @@
                 ]
             }
         },
-        "/hello/world": {
+        "/legacy/runCommand/{cmd}": {
             "get": {
                 "tags": [
                     "hello-controller"
                 ],
-                "operationId": "showForm",
+                "operationId": "runCommand",
+                "parameters": [
+                    {
+                        "name": "cmd",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/legacy/getTime": {
+            "get": {
+                "tags": [
+                    "hello-controller"
+                ],
+                "operationId": "getTime",
                 "responses": {
                     "200": {
                         "description": "OK",
